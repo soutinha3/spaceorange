@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Orange</title>
+    <!--O style em baixo indica todas as alterações de estilo do corpo da página e das caixas usadas-->
+    <style>
+        body {margin-top: -80px; margin-left: 0; background-color: #D0B786;};
+        #vidBox{position: absolute;}
+        #btnBox{position: relative; z-index: 9; bottom: 750px; left: 750px; width: 400px; height: 400px; };
+    </style>
+</head>
+<body>
+    <!--Primeira div (caixa vazia) onde está colocado tudo o que compõe a página-->
+    <div style="position: relative;">
+        <!--Segunda div, onde está colocado o vídeo em si-->
+        <div id="vidBox">
+            <video id="video" width="1900" height="auto" src="pink.mp4"></video>
+        </div>
+        <!--Uma terceira div que é usada como um botão invisível onde a propriedade onclick é um evento de click que vai correr a função play-->
+        <div id="btnBox" onclick="play()"></div>
+    </div>
+    <script>
+        //Começar um contador do 0 para depois puder usar em baixo
+        let counter = 0;
+        //vincular o elemento do video em cima a uma variável para poder usar mais tarde
+        video = document.getElementById('video');
+
+        //Função play
+        function play(){
+            //o if e o else são funções condicionais, neste caso digo que se o valor counter for menor ou igual a 2 (iniciei como 0 em cima) então corre o que está em baixo
+            if(counter <= 2){
+                video.play()
+                //aqui digo que quero que ele faça pausa no video após 2 segundos
+                setTimeout(() => { video.pause(); }, 2000);
+                //aqui incremento o valor do counter por 1
+                counter++;
+            } //Se o valor counter ultrapassar 2, então corre o que está em baixo, que é a mudança de página
+             else {
+                window.location.href = "index2.html"
+            }
+        }
+    </script>
+</body>
+</html>

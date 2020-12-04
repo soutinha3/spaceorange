@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Orange</title>
+    <style>
+        body {margin-top: -80px; margin-left: 0; background-color: #0058D0;};
+        #vidBox{position: absolute;}
+        #btnBox{position: relative; z-index: 9; bottom: 1000px; left: 750px; width: 400px; height: 400px; };
+    </style>
+</head>
+<body>
+    <div style="position: relative;">
+        <div id="vidBox">
+            <video id="video" width="1900" height="auto" src="blue.mp4"></video>
+        </div>
+        <div id="btnBox" onclick="play()"></div>
+    </div>
+    <script>
+        let counter = 0;
+        video = document.getElementById('video');
+        btn = document.getElementById('btnBox');
+        //começar o video apartir do segundo 1
+        video.currentTime = 0;
+
+        function play(){
+            if(counter <= 2){
+                video.play()
+                setTimeout(() => { video.pause(); }, 2000);
+                counter++;
+            } else {
+                window.location.href = "index3.html"
+            }
+            
+            //alterações ao estilo da caixa que serve de botão para que mude de posição
+            if(counter == 1) {btn.style.left = "900px"; btn.style.bottom = "500px";}
+            if(counter == 2) {btn.style.left = "0px"; btn.style.bottom = "1000px"; btn.style.width = "1800px"; btn.style.height = "1000px"}
+            if(counter == 3) {btn.style.left = "1000px"; btn.style.bottom = "400px"; btn.style.width = "500px"; btn.style.height = "400px"}
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Orange</title>
+    <style>
+        body {margin-top: -80px; margin-left: 0; background-color: #B2C54A;};
+        #vidBox{position: absolute;}
+        #btnBox{position: relative; z-index: 9; bottom: 450px; left: 1050px; width: 840px; height: 450px;};
+    </style>
+</head>
+<body>
+    <div style="position: relative;">
+        <div id="vidBox">
+            <video id="video" width="1900" height="auto" src="green.mp4"></video>
+        </div>
+        <div id="btnBox" onclick="play()"></div>
+    </div>
+    <script>
+        let counter = 0;
+        video = document.getElementById('video');
+        btn = document.getElementById('btnBox');
+
+        function play(){
+            if(counter <= 2){
+                video.play()
+                setTimeout(() => { video.pause(); }, 2000);
+                counter++;
+            } else {
+                //Hiperligação para o trabalho seguinte
+                window.location.href = "";
+            }
+
+            if(counter == 1) {btn.style.width = "400px"; btn.style.height = "400px";}
+            if(counter == 2) {btn.style.width = "300px"; btn.style.height = "200px"; btn.style.left = "1250px"; btn.style.bottom = "200px"}
+            if(counter == 3) {btn.style.left = "0px"; btn.style.bottom = "1000px"; btn.style.width = "1800px"; btn.style.height = "1000px"}
+        }
+    </script>
+</body>
+</html>
